@@ -1,0 +1,304 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "none": "None",
+    "optional": "Optional",
+    "required": "Required",
+    "unknown": "Unknown"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "wallets": "Wallets",
+    "categories": "Categories",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "label": "Language",
+      "description": "Select application language",
+      "spanish": "Spanish",
+      "english": "English"
+    },
+    "currency": {
+      "label": "Currency",
+      "description": "Select currency to display",
+      "bolivianos": "Bolivianos (Bs.)",
+      "dollars": "Dollars ($)"
+    },
+    "preferences": "Preferences",
+    "account": "Account",
+    "about": "About",
+    "saved": "Settings saved successfully",
+    "reset": "Reset settings"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "addNew": "New Transaction",
+    "editTransaction": "Edit Transaction",
+    "deleteTransaction": "Delete Transaction",
+    "saveTransaction": "Save Transaction",
+    "updateTransaction": "Update Transaction",
+    "deleteConfirm": "Are you sure you want to delete this transaction?",
+    "deleteFailed": "Failed to delete transaction",
+    "noTransactions": "No transactions",
+    "form": {
+      "amount": "Amount",
+      "description": "Description",
+      "category": "Category",
+      "wallet": "Wallet",
+      "date": "Date",
+      "type": "Type",
+      "notes": "Notes",
+      "notePlaceholder": "Add a note about this transaction...",
+      "selectWallet": "Select a wallet",
+      "selectCategory": "Select a category"
+    },
+    "types": {
+      "income": "Income",
+      "expense": "Expense",
+      "transfer": "Transfer"
+    },
+    "filters": {
+      "title": "Filters",
+      "show": "Show",
+      "hide": "Hide",
+      "dateRange": {
+        "label": "Date range",
+        "start": "Start date",
+        "end": "End date"
+      },
+      "category": "Category",
+      "wallet": "Wallet",
+      "type": "Type",
+      "allCategories": "All categories",
+      "allWallets": "All wallets",
+      "allTypes": "All types",
+      "searchNotes": "Search notes",
+      "searchPlaceholder": "Search in notes...",
+      "apply": "Apply filters",
+      "clear": "Clear filters"
+    },
+    "list": {
+      "empty": "No transactions found",
+      "noFiltered": "No transactions match your filters",
+      "createFirst": "Create your first transaction",
+      "dateTime": "Date & Time",
+      "wallet": "Wallet",
+      "note": "Note",
+      "deleteTitle": "Delete transaction",
+      "total": "Total",
+      "income": "Income",
+      "expenses": "Expenses",
+      "balance": "Balance"
+    },
+    "validation": {
+      "amountRequired": "Amount is required",
+      "amountPositive": "Amount must be positive",
+      "descriptionRequired": "Description is required",
+      "categoryRequired": "Category is required",
+      "walletRequired": "Wallet is required",
+      "dateRequired": "Date is required"
+    }
+  },
+  "wallets": {
+    "title": "Wallets",
+    "pageDescription": "Manage your wallets and track your total balance",
+    "totalBalance": "Total Balance",
+    "yourWallets": "Your Wallets",
+    "noWalletsYet": "No wallets yet. Create one to get started!",
+    "deleteConfirmStart": "Are you sure you want to delete",
+    "hasTransactions": "It has",
+    "willBeSoftDeleted": "The wallet will be soft-deleted.",
+    "deleteFailed": "Failed to delete wallet",
+    "updateFailed": "Failed to update wallet",
+    "transaction": "transaction",
+    "transactions": "transactions",
+    "addNew": "New Wallet",
+    "createWallet": "Create Wallet",
+    "editWallet": "Edit Wallet",
+    "deleteWallet": "Delete Wallet",
+    "noWallets": "No wallets",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "e.g., Cash, Bank Account, PayPal",
+      "nameHint": "characters. Names are case-sensitive and must be unique.",
+      "balance": "Initial balance",
+      "color": "Color",
+      "icon": "Icon",
+      "description": "Description"
+    },
+    "card": {
+      "balance": "Balance",
+      "transactions": "Transactions",
+      "lastTransaction": "Last transaction"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameTooLong": "Name must be 100 characters or less",
+      "balanceRequired": "Balance is required"
+    }
+  },
+  "categories": {
+    "title": "Categories",
+    "pageDescription": "Manage transaction categories. Predefined categories cannot be edited or deleted.",
+    "categorySummary": "Category Summary",
+    "allCategories": "All Categories",
+    "predefinedLabel": "Predefined",
+    "noCustomCategoriesYet": "No custom categories yet. Create one to get started!",
+    "deleteConfirmStart": "Are you sure you want to delete",
+    "hasTransactions": "It has",
+    "willBeSoftDeleted": "The category will be soft-deleted.",
+    "deleteFailed": "Failed to delete category",
+    "transaction": "transaction",
+    "transactions": "transactions",
+    "addNew": "New Category",
+    "createCategory": "Create Category",
+    "updateCategory": "Update Category",
+    "editCategory": "Edit Category",
+    "deleteCategory": "Delete Category",
+    "noCategories": "No categories",
+    "predefined": "Predefined Categories",
+    "custom": "Custom Categories",
+    "names": {
+      "food": "Food",
+      "transport": "Transport",
+      "salary": "Salary",
+      "entertainment": "Entertainment",
+      "utilities": "Utilities",
+      "healthcare": "Healthcare",
+      "other": "Other"
+    },
+    "summary": {
+      "overallTitle": "Overall Summary",
+      "totalIncome": "Total Income",
+      "totalExpenses": "Total Expenses",
+      "netAmount": "Net Amount",
+      "totalTransactions": "total transactions",
+      "breakdown": "Category Breakdown",
+      "noData": "No transaction data available yet.",
+      "income": "Income",
+      "expenses": "Expenses",
+      "percentageOfTotal": "% of Total Expenses"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "e.g., Shopping, Groceries, Rent",
+      "nameHint": "characters. Category names must be unique.",
+      "type": "Type",
+      "color": "Color",
+      "icon": "Icon"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameTooLong": "Name must be 50 characters or less",
+      "typeRequired": "Type is required"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Track your income, expenses, and savings to reach your financial goals",
+    "summary": {
+      "title": "Summary",
+      "totalBalance": "Total Balance",
+      "totalIncome": "Total Income",
+      "totalExpenses": "Total Expenses",
+      "netSavings": "Net Savings",
+      "monthlyIncome": "Monthly Income",
+      "monthlyExpenses": "Monthly Expenses",
+      "netIncome": "Net Income",
+      "transaction": "transaction",
+      "transactions": "transactions",
+      "thisMonth": "this month"
+    },
+    "quickActions": {
+      "newTransaction": "New Transaction",
+      "newTransactionDesc": "Record income or expense",
+      "manageWallets": "Manage Wallets",
+      "manageWalletsDesc": "View and organize wallets",
+      "manageCategories": "Manage Categories",
+      "manageCategoriesDesc": "Customize categories"
+    },
+    "categoryBreakdown": {
+      "title": "Spending by Category",
+      "noData": "No expense data for this month yet.",
+      "totalCategories": "Total Categories",
+      "totalExpenses": "Total Expenses"
+    },
+    "monthlyTrends": {
+      "title": "Monthly Trends (Last 12 Months)",
+      "noData": "No transaction data available yet.",
+      "income": "Income",
+      "expenses": "Expenses",
+      "netSavings": "Net Savings"
+    },
+    "savingsRate": {
+      "title": "Savings Rate",
+      "description": "Track your progress towards the 10% savings goal",
+      "currentRate": "Current Savings Rate",
+      "progressToGoal": "Progress to Goal",
+      "goal": "Goal",
+      "needToSave": "You need to save",
+      "moreToReachGoal": "more to reach your goal.",
+      "status": {
+        "label": "Status",
+        "excellent": "Excellent",
+        "excellentMessage": "You are meeting your savings goal! 🎉",
+        "good": "Good",
+        "goodMessage": "You are making progress towards your goal.",
+        "fair": "Fair",
+        "fairMessage": "Keep going! Try to save a bit more.",
+        "needsAttention": "Needs Attention",
+        "needsAttentionMessage": "Your expenses exceed your income."
+      }
+    },
+    "recentTransactions": "Recent Transactions",
+    "topCategories": "Top Categories",
+    "spendingTrend": "Spending Trend"
+  },
+  "reports": {
+    "title": "Reports",
+    "period": {
+      "label": "Period",
+      "thisMonth": "This Month",
+      "lastMonth": "Last Month",
+      "thisYear": "This Year",
+      "custom": "Custom"
+    },
+    "incomeVsExpenses": "Income vs Expenses",
+    "categoryBreakdown": "Category Breakdown",
+    "walletBalance": "Wallet Balance"
+  },
+  "errors": {
+    "generic": "An unexpected error occurred",
+    "notFound": "Not found",
+    "unauthorized": "Unauthorized",
+    "networkError": "Connection error",
+    "validationError": "Validation error"
+  },
+  "test": {
+    "onlyInEnglish": "This key only exists in English"
+  }
+}

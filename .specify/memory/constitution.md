@@ -1,50 +1,119 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+CONSTITUTION AMENDMENT SYNC REPORT
+Generated: 2025-10-22
+
+Version Change: 1.0.0 → 1.1.0 (MINOR)
+Rationale: Added material guidance for responsive design and mobile-first principles to existing UX section, plus mobile-specific performance metrics. This is a non-breaking addition that expands existing principles.
+
+Modified Principles:
+- III. User Experience Consistency → Enhanced with "Responsive Design" subsection mandating mobile-first approach, responsive layouts, and touch-friendly interactions (44x44px minimum touch targets)
+
+Added Sections:
+- Responsive Design guidance under Principle III (mobile-first, cross-device adaptation, touch interactions)
+- Mobile responsiveness metric under Performance Requirements (< 100ms UI response on mobile)
+- Mobile network performance requirement (< 3 seconds on 3G for page load)
+
+Removed Sections: None
+
+Templates Requiring Updates:
+- ✅ .specify/templates/plan-template.md (Constitution Check section aligns with new principles)
+- ✅ .specify/templates/spec-template.md (Requirements should consider mobile-first UX)
+- ✅ .specify/templates/tasks-template.md (Tasks should include responsive design verification)
+- ✅ .specify/templates/checklist-template.md (Quality checks should verify responsive design)
+
+Follow-up TODOs: None - all placeholders resolved
+
+Impact on Active Features:
+- specs/001-personal-finance-tracker/plan.md should be reviewed to ensure mobile-first responsive design is addressed in the Technical Context and Constitution Check sections
+-->
+
+# Engineering Excellence Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality First
+Code quality is non-negotiable. All code must adhere to established style guides and patterns. Readability, maintainability, and simplicity take precedence over clever solutions. Technical debt must be documented and addressed in a timely manner. Code reviews must focus on quality, not just functionality.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Comprehensive Testing Strategy
+Testing is mandatory for all code changes. Unit tests must achieve minimum 80% code coverage. Integration tests are required for all service boundaries. End-to-end tests must validate critical user journeys. Performance tests are required for high-traffic components. Test code deserves the same quality standards as production code.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. User Experience Consistency
+All user interfaces must follow established design patterns and style guides. User flows must be intuitive and consistent across the application. Accessibility compliance is mandatory (WCAG AA minimum). User feedback must be collected and incorporated into the development process. Performance is a feature - all UX must meet defined responsiveness standards.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Responsive Design**: All interfaces must be responsive and mobile-first, given that the application will be primarily accessed through mobile devices. Layouts must adapt seamlessly across screen sizes (mobile, tablet, desktop). Touch-friendly interactions are mandatory, with minimum touch target sizes of 44x44px. Mobile performance must not be sacrificed for desktop features.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### IV. Performance By Design
+Performance requirements must be defined before implementation begins. Regular performance testing is mandatory for all critical paths. Resource utilization must be monitored and optimized. Caching strategies must be implemented where appropriate. Performance degradations require immediate attention and remediation.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### V. Security As Foundation
+Security is everyone's responsibility. All code must undergo security review. Authentication and authorization must be implemented consistently. Data protection and privacy controls must be built-in from the start. Regular security testing and vulnerability scanning is mandatory.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technical Standards
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Architecture Standards
+- Microservices must be properly bounded by domain
+- APIs must be versioned and backward compatible
+- Event-driven patterns preferred for asynchronous operations
+- Infrastructure as Code required for all deployments
+- Stateless services preferred where possible
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Quality Metrics
+- Code complexity: Maximum cyclomatic complexity of 15
+- Method length: Maximum 30 lines per method
+- Class/file size: Maximum 300 lines
+- Test coverage: Minimum 80% line coverage
+- Documentation: All public APIs must be documented
+
+### Performance Requirements
+- Page load: < 2 seconds for initial load (< 3 seconds on 3G mobile networks)
+- API response: < 200ms for 95th percentile
+- Database queries: < 100ms for 95th percentile
+- Resource utilization: < 70% CPU/memory under normal load
+- Scalability: Must support 2x current peak load
+- Mobile responsiveness: UI interactions must respond within 100ms on mobile devices
+
+## Development Workflow
+
+### Planning and Design
+- Architecture Decision Records (ADRs) required for significant changes
+- Design reviews mandatory for new features
+- Performance and security considerations documented upfront
+- Acceptance criteria must include quality and performance metrics
+
+### Implementation Process
+- Feature branches with trunk-based development
+- Continuous Integration with automated testing
+- Code reviews required with at least two approvers
+- Static analysis tools must pass before merge
+- Documentation updated with code changes
+
+### Release Management
+- Automated deployment pipelines
+- Feature flags for controlled rollouts
+- Monitoring and alerting in place before release
+- Rollback plan documented for each release
+- Post-deployment verification required
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+These principles and standards serve as the foundation for all technical decisions and implementation choices. The constitution supersedes all other technical guidelines and practices.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Decision-Making Framework
+1. All technical decisions must align with the core principles
+2. Exceptions require documented justification and approval
+3. Trade-offs must be explicitly documented and communicated
+4. Technical debt created by exceptions must be tracked and prioritized
+
+### Amendment Process
+1. Proposed amendments must be documented with rationale
+2. Technical leadership team must review and approve changes
+3. Changes require a migration plan for existing code
+4. All team members must be notified of amendments
+
+### Compliance Verification
+1. Automated checks where possible (linters, test coverage, etc.)
+2. Code review checklist must include constitution compliance
+3. Regular audits to ensure adherence to principles
+4. Technical retrospectives to identify improvement areas
+
+**Version**: 1.1.0 | **Ratified**: 2023-11-15 | **Last Amended**: 2025-10-22

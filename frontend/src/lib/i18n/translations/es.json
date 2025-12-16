@@ -1,0 +1,301 @@
+{
+  "common": {
+    "welcome": "Bienvenido",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Agregar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "reset": "Restablecer",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "yes": "Sí",
+    "no": "No",
+    "all": "Todos",
+    "none": "Ninguno",
+    "optional": "Opcional",
+    "required": "Requerido",
+    "unknown": "Desconocido"
+  },
+  "navigation": {
+    "dashboard": "Inicio",
+    "transactions": "Transacciones",
+    "wallets": "Billeteras",
+    "categories": "Categorías",
+    "reports": "Reportes",
+    "settings": "Configuración"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": {
+      "label": "Idioma",
+      "description": "Selecciona el idioma de la aplicación",
+      "spanish": "Español",
+      "english": "Inglés"
+    },
+    "currency": {
+      "label": "Moneda",
+      "description": "Selecciona la moneda para mostrar",
+      "bolivianos": "Bolivianos (Bs.)",
+      "dollars": "Dólares ($)"
+    },
+    "preferences": "Preferencias",
+    "account": "Cuenta",
+    "about": "Acerca de",
+    "saved": "Configuración guardada exitosamente",
+    "reset": "Restablecer configuración"
+  },
+  "transactions": {
+    "title": "Transacciones",
+    "addNew": "Nueva Transacción",
+    "editTransaction": "Editar Transacción",
+    "deleteTransaction": "Eliminar Transacción",
+    "saveTransaction": "Guardar Transacción",
+    "updateTransaction": "Actualizar Transacción",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta transacción?",
+    "deleteFailed": "Error al eliminar la transacción",
+    "noTransactions": "No hay transacciones",
+    "form": {
+      "amount": "Monto",
+      "description": "Descripción",
+      "category": "Categoría",
+      "wallet": "Billetera",
+      "date": "Fecha",
+      "type": "Tipo",
+      "notes": "Notas",
+      "notePlaceholder": "Agrega una nota sobre esta transacción...",
+      "selectWallet": "Selecciona una billetera",
+      "selectCategory": "Selecciona una categoría"
+    },
+    "types": {
+      "income": "Ingreso",
+      "expense": "Gasto",
+      "transfer": "Transferencia"
+    },
+    "filters": {
+      "title": "Filtros",
+      "show": "Mostrar",
+      "hide": "Ocultar",
+      "dateRange": {
+        "label": "Rango de fechas",
+        "start": "Fecha inicial",
+        "end": "Fecha final"
+      },
+      "category": "Categoría",
+      "wallet": "Billetera",
+      "type": "Tipo",
+      "allCategories": "Todas las categorías",
+      "allWallets": "Todas las billeteras",
+      "allTypes": "Todos los tipos",
+      "searchNotes": "Buscar en notas",
+      "searchPlaceholder": "Buscar en notas...",
+      "apply": "Aplicar filtros",
+      "clear": "Limpiar filtros"
+    },
+    "list": {
+      "empty": "No se encontraron transacciones",
+      "noFiltered": "No hay transacciones que coincidan con tus filtros",
+      "createFirst": "Crea tu primera transacción",
+      "dateTime": "Fecha y Hora",
+      "wallet": "Billetera",
+      "note": "Nota",
+      "deleteTitle": "Eliminar transacción",
+      "total": "Total",
+      "income": "Ingresos",
+      "expenses": "Gastos",
+      "balance": "Balance"
+    },
+    "validation": {
+      "amountRequired": "El monto es requerido",
+      "amountPositive": "El monto debe ser positivo",
+      "descriptionRequired": "La descripción es requerida",
+      "categoryRequired": "La categoría es requerida",
+      "walletRequired": "La billetera es requerida",
+      "dateRequired": "La fecha es requerida"
+    }
+  },
+  "wallets": {
+    "title": "Billeteras",
+    "pageDescription": "Administra tus billeteras y rastrea tu balance total",
+    "totalBalance": "Balance Total",
+    "yourWallets": "Tus Billeteras",
+    "noWalletsYet": "Aún no hay billeteras. ¡Crea una para comenzar!",
+    "deleteConfirmStart": "¿Estás seguro de que quieres eliminar",
+    "hasTransactions": "Tiene",
+    "willBeSoftDeleted": "La billetera será marcada como eliminada.",
+    "deleteFailed": "Error al eliminar la billetera",
+    "updateFailed": "Error al actualizar la billetera",
+    "transaction": "transacción",
+    "transactions": "transacciones",
+    "addNew": "Nueva Billetera",
+    "createWallet": "Crear Billetera",
+    "editWallet": "Editar Billetera",
+    "deleteWallet": "Eliminar Billetera",
+    "noWallets": "No hay billeteras",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "ej. Efectivo, Cuenta bancaria, PayPal",
+      "nameHint": "caracteres. Los nombres distinguen mayúsculas y deben ser únicos.",
+      "balance": "Balance inicial",
+      "color": "Color",
+      "icon": "Icono",
+      "description": "Descripción"
+    },
+    "card": {
+      "balance": "Balance",
+      "transactions": "Transacciones",
+      "lastTransaction": "Última transacción"
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "nameTooLong": "El nombre debe tener 100 caracteres o menos",
+      "balanceRequired": "El balance es requerido"
+    }
+  },
+  "categories": {
+    "title": "Categorías",
+    "pageDescription": "Administra las categorías de transacciones. Las categorías predefinidas no pueden ser editadas ni eliminadas.",
+    "categorySummary": "Resumen de Categorías",
+    "allCategories": "Todas las Categorías",
+    "predefinedLabel": "Predefinida",
+    "noCustomCategoriesYet": "Aún no hay categorías personalizadas. ¡Crea una para comenzar!",
+    "deleteConfirmStart": "¿Estás seguro de que quieres eliminar",
+    "hasTransactions": "Tiene",
+    "willBeSoftDeleted": "La categoría será marcada como eliminada.",
+    "deleteFailed": "Error al eliminar la categoría",
+    "transaction": "transacción",
+    "transactions": "transacciones",
+    "addNew": "Nueva Categoría",
+    "createCategory": "Crear Categoría",
+    "updateCategory": "Actualizar Categoría",
+    "editCategory": "Editar Categoría",
+    "deleteCategory": "Eliminar Categoría",
+    "noCategories": "No hay categorías",
+    "predefined": "Categorías Predefinidas",
+    "custom": "Categorías Personalizadas",
+    "names": {
+      "food": "Comida",
+      "transport": "Transporte",
+      "salary": "Salario",
+      "entertainment": "Entretenimiento",
+      "utilities": "Servicios",
+      "healthcare": "Salud",
+      "other": "Otro"
+    },
+    "summary": {
+      "overallTitle": "Resumen General",
+      "totalIncome": "Ingresos Totales",
+      "totalExpenses": "Gastos Totales",
+      "netAmount": "Monto Neto",
+      "totalTransactions": "transacciones totales",
+      "breakdown": "Desglose por Categoría",
+      "noData": "Aún no hay datos de transacciones disponibles.",
+      "income": "Ingresos",
+      "expenses": "Gastos",
+      "percentageOfTotal": "% del Total de Gastos"
+    },
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "ej. Compras, Comestibles, Alquiler",
+      "nameHint": "caracteres. Los nombres de categoría deben ser únicos.",
+      "type": "Tipo",
+      "color": "Color",
+      "icon": "Icono"
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "nameTooLong": "El nombre debe tener 50 caracteres o menos",
+      "typeRequired": "El tipo es requerido"
+    }
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "subtitle": "Rastrea tus ingresos, gastos y ahorros para alcanzar tus metas financieras",
+    "summary": {
+      "title": "Resumen",
+      "totalBalance": "Balance Total",
+      "totalIncome": "Ingresos Totales",
+      "totalExpenses": "Gastos Totales",
+      "netSavings": "Ahorros Netos",
+      "monthlyIncome": "Ingresos del Mes",
+      "monthlyExpenses": "Gastos del Mes",
+      "netIncome": "Ingreso Neto",
+      "transaction": "transacción",
+      "transactions": "transacciones",
+      "thisMonth": "este mes"
+    },
+    "quickActions": {
+      "newTransaction": "Nueva Transacción",
+      "newTransactionDesc": "Registrar ingreso o gasto",
+      "manageWallets": "Gestionar Billeteras",
+      "manageWalletsDesc": "Ver y organizar billeteras",
+      "manageCategories": "Gestionar Categorías",
+      "manageCategoriesDesc": "Personalizar categorías"
+    },
+    "categoryBreakdown": {
+      "title": "Gastos por Categoría",
+      "noData": "Aún no hay datos de gastos para este mes.",
+      "totalCategories": "Total de Categorías",
+      "totalExpenses": "Gastos Totales"
+    },
+    "monthlyTrends": {
+      "title": "Tendencias Mensuales (Últimos 12 Meses)",
+      "noData": "Aún no hay datos de transacciones disponibles.",
+      "income": "Ingresos",
+      "expenses": "Gastos",
+      "netSavings": "Ahorros Netos"
+    },
+    "savingsRate": {
+      "title": "Tasa de Ahorro",
+      "description": "Rastrea tu progreso hacia la meta de ahorro del 10%",
+      "currentRate": "Tasa de Ahorro Actual",
+      "progressToGoal": "Progreso hacia la Meta",
+      "goal": "Meta",
+      "needToSave": "Necesitas ahorrar",
+      "moreToReachGoal": "más para alcanzar tu meta.",
+      "status": {
+        "label": "Estado",
+        "excellent": "Excelente",
+        "excellentMessage": "¡Estás cumpliendo tu meta de ahorro! 🎉",
+        "good": "Bien",
+        "goodMessage": "Estás progresando hacia tu meta.",
+        "fair": "Regular",
+        "fairMessage": "¡Sigue adelante! Intenta ahorrar un poco más.",
+        "needsAttention": "Necesita Atención",
+        "needsAttentionMessage": "Tus gastos superan tus ingresos."
+      }
+    },
+    "recentTransactions": "Transacciones Recientes",
+    "topCategories": "Principales Categorías",
+    "spendingTrend": "Tendencia de Gastos"
+  },
+  "reports": {
+    "title": "Reportes",
+    "period": {
+      "label": "Período",
+      "thisMonth": "Este Mes",
+      "lastMonth": "Mes Pasado",
+      "thisYear": "Este Año",
+      "custom": "Personalizado"
+    },
+    "incomeVsExpenses": "Ingresos vs Gastos",
+    "categoryBreakdown": "Desglose por Categoría",
+    "walletBalance": "Balance por Billetera"
+  },
+  "errors": {
+    "generic": "Ocurrió un error inesperado",
+    "notFound": "No encontrado",
+    "unauthorized": "No autorizado",
+    "networkError": "Error de conexión",
+    "validationError": "Error de validación"
+  }
+}
