@@ -153,3 +153,23 @@ function createSettingsStore(): SettingsStore {
  * @see specs/002-settings-i18n-currency/tasks.md line 60
  */
 export const settingsStore = createSettingsStore();
+
+/**
+ * Sync settings across browser tabs via the storage event
+ * When another tab changes LocalStorage 'userSettings', this tab updates its store.
+ *
+ * @see specs/002-settings-i18n-currency/tasks.md T106
+ */
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (event: StorageEvent) => {
+    if (event.key !== 'userSettings' || event.newValue === null) return;
+
+    try {
+      const parsed = JSON.parse(event.newValue);
+      const validated = UserSettingsSchema.parse(parsed);
+      settingsStore.set(validated);
+    } catch {
+      // Ignore invalid data from other tabs
+    }
+  });
+}

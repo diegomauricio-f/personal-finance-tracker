@@ -59,7 +59,7 @@ Users need their language and currency preferences to persist across browser ses
 
 ### Edge Cases
 
-- What happens when a user has the app open in multiple tabs and changes settings in one tab?
+- What happens when a user has the app open in multiple tabs and changes settings in one tab? → Settings changes propagate to all open tabs via the browser `storage` event listener
 - How does the system handle if a stored language code becomes invalid or corrupted in LocalStorage?
 - What happens if a user manually edits LocalStorage to set an unsupported language or currency?
 - How does the application handle partial translations if some UI elements aren't translated?
@@ -117,7 +117,7 @@ Users need their language and currency preferences to persist across browser ses
 4. **Browser Compatibility**: Users have browsers that support LocalStorage (standard requirement for the existing application)
 5. **Default Language**: Spanish is the default because the user specified it as "por defecto"
 6. **Translation Maintenance**: Translations will be maintained in separate language files (JSON or similar) for easy updates
-7. **Number Formatting**: Number formatting (decimal separators, thousand separators) will remain consistent regardless of currency selection
+7. **Number Formatting**: Number formatting follows the locale of the selected currency. Bs. uses Spanish-Bolivian locale (`es-BO`): dot as thousands separator, comma as decimal (e.g., `1.500,00`). $ uses US locale (`en-US`): comma as thousands separator, dot as decimal (e.g., `1,500.00`). This is a display-only change — no numerical conversion occurs.
 
 ## Dependencies
 

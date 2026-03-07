@@ -9,7 +9,7 @@ import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { get } from 'svelte/store';
 import { settingsStore } from '$lib/stores/settings';
 import { storageService } from '$lib/services/storage';
-import type { UserSettings } from '$lib/i18n/types';
+import type { UserSettings, Language, Currency } from '$lib/i18n/types';
 
 // Create a simple in-memory storage for tests
 let testStorage: Record<string, string> = {};
@@ -144,7 +144,7 @@ describe('Settings Store', () => {
 
       // Act & Assert: Should throw or reject invalid language
       expect(() => {
-        settingsStore.setLanguage('fr' as any);
+        settingsStore.setLanguage('fr' as Language);
       }).toThrow();
     });
 
@@ -180,7 +180,7 @@ describe('Settings Store', () => {
 
       // Act & Assert: Should throw or reject invalid currency
       expect(() => {
-        settingsStore.setCurrency('€' as any);
+        settingsStore.setCurrency('€' as Currency);
       }).toThrow();
     });
 
@@ -315,6 +315,68 @@ describe('Settings Store', () => {
 
       // Cleanup
       unsubscribe();
+    });
+  });
+
+  describe('T106: Multi-tab sync via storage event', () => {
+    it('should update store when storage event fires with valid settings', () => {
+      // Arrange
+      settingsStore.initializeSettings();
+      expect(get(settingsStore).language).toBe('es');
+
+      // Act: Simulate another tab writing to localStorage
+      const newSettings = JSON.stringify({ language: 'en', currency: '$' });
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'userSettings',
+        newValue: newSettings,
+      }));
+
+      // Assert: Store should reflect the change
+      expect(get(settingsStore).language).toBe('en');
+      expect(get(settingsStore).currency).toBe('$');
+    });
+
+    it('should ignore storage events with null newValue', () => {
+      // Arrange
+      settingsStore.initializeSettings();
+      settingsStore.setLanguage('en');
+
+      // Act: Simulate item removal
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'userSettings',
+        newValue: null,
+      }));
+
+      // Assert: Store should remain unchanged
+      expect(get(settingsStore).language).toBe('en');
+    });
+
+    it('should ignore storage events for other keys', () => {
+      // Arrange
+      settingsStore.initializeSettings();
+
+      // Act: Storage event for different key
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'someOtherKey',
+        newValue: JSON.stringify({ language: 'en', currency: '$' }),
+      }));
+
+      // Assert: Store should remain unchanged
+      expect(get(settingsStore).language).toBe('es');
+    });
+
+    it('should ignore storage events with invalid settings data', () => {
+      // Arrange
+      settingsStore.initializeSettings();
+
+      // Act: Simulate invalid JSON from another tab
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: 'userSettings',
+        newValue: '{ invalid json }',
+      }));
+
+      // Assert: Store should remain at defaults (not crash)
+      expect(get(settingsStore).language).toBe('es');
     });
   });
 });

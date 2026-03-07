@@ -7,7 +7,6 @@
 
 import { test, expect } from '@playwright/test';
 
-/* eslint-disable max-lines-per-function */
 test.describe('Settings - Language Switching', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to home page
@@ -180,7 +179,7 @@ test.describe('Settings - Edge Cases', () => {
     await expect(page.getByRole('heading', { name: 'Configuración' })).toBeVisible();
   });
 
-  test('Works with localStorage disabled', async ({ page, context }) => {
+  test('Works with localStorage disabled', async ({ page }) => {
     // This test verifies graceful degradation
     await page.goto('/settings');
 

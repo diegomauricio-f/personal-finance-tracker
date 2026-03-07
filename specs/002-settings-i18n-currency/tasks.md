@@ -22,13 +22,13 @@
 
 **Purpose**: Project structure and TypeScript type definitions
 
-- [ ] T001 [P] Create i18n directory structure at frontend/src/lib/i18n/
-- [ ] T002 [P] Create translations directory at frontend/src/lib/i18n/translations/
-- [ ] T003 [P] Create settings components directory at frontend/src/lib/components/settings/
-- [ ] T004 [P] Create settings route directory at frontend/src/routes/settings/
-- [ ] T005 [P] Create test directories for unit/integration/e2e tests
-- [ ] T006 [P] Create i18n types file at frontend/src/lib/i18n/types.ts with Language and Currency types
-- [ ] T007 [P] Update storage service at frontend/src/lib/services/storage.ts to add getSettings/saveSettings methods
+- [X] T001 [P] Create i18n directory structure at frontend/src/lib/i18n/
+- [X] T002 [P] Create translations directory at frontend/src/lib/i18n/translations/
+- [X] T003 [P] Create settings components directory at frontend/src/lib/components/settings/
+- [X] T004 [P] Create settings route directory at frontend/src/routes/settings/
+- [X] T005 [P] Create test directories for unit/integration/e2e tests
+- [X] T006 [P] Create i18n types file at frontend/src/lib/i18n/types.ts with Language and Currency types
+- [X] T007 [P] Update storage service at frontend/src/lib/services/storage.ts to add getSettings/saveSettings methods
 
 ---
 
@@ -44,23 +44,25 @@
 
 ### Tests for Foundational Phase
 
-- [ ] T008 [P] Create unit test file for settings store at frontend/tests/unit/settings-store.test.ts
-- [ ] T009 [P] Write test: Settings store initializes with defaults (Spanish, Bs.) when no stored settings
-- [ ] T010 [P] Write test: Settings store loads valid settings from LocalStorage
-- [ ] T011 [P] Write test: Settings store resets to defaults when corrupted data in LocalStorage
-- [ ] T012 [P] Write test: setLanguage validates and rejects invalid language codes
-- [ ] T013 [P] Write test: setCurrency validates and rejects invalid currency codes
-- [ ] T014 [P] Write test: Settings changes automatically persist to LocalStorage
-- [ ] T015 [P] Write test: reset() method resets to default values
+- [X] T008 [P] Create unit test file for settings store at frontend/tests/unit/settings-store.test.ts
+- [X] T009 [P] Write test: Settings store initializes with defaults (Spanish, Bs.) when no stored settings
+- [X] T010 [P] Write test: Settings store loads valid settings from LocalStorage
+- [X] T011 [P] Write test: Settings store resets to defaults when corrupted data in LocalStorage
+- [X] T012 [P] Write test: setLanguage validates and rejects invalid language codes
+- [X] T013 [P] Write test: setCurrency validates and rejects invalid currency codes
+- [X] T014 [P] Write test: Settings changes automatically persist to LocalStorage
+- [X] T015 [P] Write test: reset() method resets to default values
 
 ### Implementation for Foundational Phase
 
-- [ ] T016 Create Zod validation schemas at frontend/src/lib/i18n/types.ts (LanguageSchema, CurrencySchema, UserSettingsSchema)
-- [ ] T017 Implement settings store at frontend/src/lib/stores/settings.ts with initializeSettings, setLanguage, setCurrency, reset methods
-- [ ] T018 Add auto-persistence subscription to settings store using storageService.saveSettings
-- [ ] T019 Export settings store interface with subscribe, setLanguage, setCurrency, reset methods
+- [X] T016 Create Zod validation schemas at frontend/src/lib/i18n/types.ts (LanguageSchema, CurrencySchema, UserSettingsSchema)
+- [X] T017 Implement settings store at frontend/src/lib/stores/settings.ts with initializeSettings, setLanguage, setCurrency, reset methods
+- [X] T018 Add auto-persistence subscription to settings store using storageService.saveSettings
+- [X] T019 Export settings store interface with subscribe, setLanguage, setCurrency, reset methods
+- [X] T106 Add `window.addEventListener('storage', ...)` in settings store to sync settings changes across browser tabs (handle `key === 'userSettings'` events and update store state)
+- [X] T113 Verify synchronous settings load on app init prevents Flash of Untranslated Content (FOUT): settings must be read from LocalStorage before first render — add test confirming no language flash on cold start
 
-**Checkpoint**: Settings store complete with persistence - User Story 3 functional. Language and currency changes now persist across sessions.
+**Checkpoint**: Settings store complete with persistence - User Story 3 functional. Language and currency changes now persist across sessions and sync across open tabs.
 
 ---
 
@@ -76,61 +78,67 @@
 
 #### Unit Tests
 
-- [ ] T020 [P] [US1] Create unit test file for i18n at frontend/tests/unit/i18n.test.ts
-- [ ] T021 [P] [US1] Write test: Translation function returns Spanish translation by default
-- [ ] T022 [P] [US1] Write test: Translation function returns English translation when language is English
-- [ ] T023 [P] [US1] Write test: Translation function falls back to English when Spanish translation missing
-- [ ] T024 [P] [US1] Write test: Translation function returns key when translation missing in all languages
-- [ ] T025 [P] [US1] Write test: hasTranslation returns true for existing keys
-- [ ] T026 [P] [US1] Write test: hasTranslation returns false for missing keys
+- [X] T020 [P] [US1] Create unit test file for i18n at frontend/tests/unit/i18n.test.ts
+- [X] T021 [P] [US1] Write test: Translation function returns Spanish translation by default
+- [X] T022 [P] [US1] Write test: Translation function returns English translation when language is English
+- [X] T023 [P] [US1] Write test: Translation function falls back to English when Spanish translation missing
+- [X] T024 [P] [US1] Write test: Translation function returns key when translation missing in all languages
+- [X] T025 [P] [US1] Write test: hasTranslation returns true for existing keys
+- [X] T026 [P] [US1] Write test: hasTranslation returns false for missing keys
 
 #### Component Tests
 
-- [ ] T027 [P] [US1] Create integration test file for settings page at frontend/tests/integration/settings-page.test.ts
-- [ ] T028 [P] [US1] Write test: Settings page renders in Spanish by default
-- [ ] T029 [P] [US1] Write test: Language selector updates UI text immediately when changed
-- [ ] T030 [P] [US1] Write test: All translatable components update when language changes
+- [X] T027 [P] [US1] Create integration test file for settings page at frontend/tests/integration/settings-page.test.ts
+- [X] T028 [P] [US1] Write test: Settings page renders in Spanish by default
+- [X] T029 [P] [US1] Write test: Language selector updates UI text immediately when changed
+- [X] T030 [P] [US1] Write test: All translatable components update when language changes
 
 #### E2E Tests
 
-- [ ] T031 [P] [US1] Create E2E test file at frontend/tests/e2e/settings.spec.ts
-- [ ] T032 [P] [US1] Write test: User changes language from Spanish to English, all text updates
-- [ ] T033 [P] [US1] Write test: User changes language, closes browser, reopens, language persists
-- [ ] T034 [P] [US1] Write test: Settings page accessible from navigation in max 2 clicks
-- [ ] T035 [P] [US1] Write test: Language switch completes in under 200ms (SC-001)
+- [X] T031 [P] [US1] Create E2E test file at frontend/tests/e2e/settings.spec.ts
+- [X] T032 [P] [US1] Write test: User changes language from Spanish to English, all text updates
+- [X] T033 [P] [US1] Write test: User changes language, closes browser, reopens, language persists
+- [X] T034 [P] [US1] Write test: Settings page accessible from navigation in max 2 clicks
+- [X] T035 [P] [US1] Write test: Language switch completes in under 200ms (SC-001)
 
 ### Implementation for User Story 1
 
 #### Translation Files
 
-- [ ] T036 [P] [US1] Create Spanish translation file at frontend/src/lib/i18n/translations/es.json with common, navigation, settings, transactions, wallets, categories keys (~100 strings)
-- [ ] T037 [P] [US1] Create English translation file at frontend/src/lib/i18n/translations/en.json with same keys as Spanish
+- [X] T036 [P] [US1] Create Spanish translation file at frontend/src/lib/i18n/translations/es.json with common, navigation, settings, transactions, wallets, categories keys (~100 strings)
+- [X] T037 [P] [US1] Create English translation file at frontend/src/lib/i18n/translations/en.json with same keys as Spanish
 
 #### i18n System
 
-- [ ] T038 [US1] Implement translation system at frontend/src/lib/i18n/index.ts with t derived store, getCurrentLanguage, hasTranslation, getAllKeys functions
-- [ ] T039 [US1] Integrate translation store with settings store for reactive language updates
-- [ ] T040 [US1] Add translation fallback chain (current language → English → key)
-- [ ] T041 [US1] Add console warnings for missing translations
+- [X] T038 [US1] Implement translation system at frontend/src/lib/i18n/index.ts with t derived store, getCurrentLanguage, hasTranslation, getAllKeys functions
+- [X] T039 [US1] Integrate translation store with settings store for reactive language updates
+- [X] T040 [US1] Add translation fallback chain (current language → English → key)
+- [X] T041 [US1] Add console warnings for missing translations
 
 #### Settings UI Components
 
-- [ ] T042 [P] [US1] Create LanguageSelector component at frontend/src/lib/components/settings/LanguageSelector.svelte with Spanish/English dropdown
-- [ ] T043 [P] [US1] Create main SettingsPage component at frontend/src/lib/components/settings/SettingsPage.svelte with language and currency sections
-- [ ] T044 [US1] Create settings route at frontend/src/routes/settings/+page.svelte importing SettingsPage component
+- [X] T042 [P] [US1] Create LanguageSelector component at frontend/src/lib/components/settings/LanguageSelector.svelte with Spanish/English dropdown
+- [X] T043 [P] [US1] Create main SettingsPage component at frontend/src/lib/components/settings/SettingsPage.svelte with language and currency sections
+- [X] T044 [US1] Create settings route at frontend/src/routes/settings/+page.svelte importing SettingsPage component
 
 #### Navigation Integration
 
-- [ ] T045 [US1] Update Navigation component at frontend/src/lib/components/layout/Navigation.svelte to add Settings link with icon
-- [ ] T046 [US1] Wrap Navigation component text with $t() calls for reactive translations
+- [X] T045 [US1] Update Navigation component at frontend/src/lib/components/layout/Navigation.svelte to add Settings link with icon
+- [X] T046 [US1] Wrap Navigation component text with $t() calls for reactive translations
 
 #### Component Translation Updates
 
-- [ ] T047 [P] [US1] Update TransactionForm component at frontend/src/lib/components/transactions/TransactionForm.svelte to wrap all text with $t()
-- [ ] T048 [P] [US1] Update TransactionFilters component at frontend/src/lib/components/transactions/TransactionFilters.svelte to wrap all text with $t()
-- [ ] T049 [P] [US1] Update TransactionList component at frontend/src/lib/components/transactions/TransactionList.svelte to wrap all text with $t()
-- [ ] T050 [P] [US1] Update WalletForm component (if exists) to wrap all text with $t()
-- [ ] T051 [P] [US1] Update CategoryForm component (if exists) to wrap all text with $t()
+- [X] T047 [P] [US1] Update TransactionForm component at frontend/src/lib/components/transactions/TransactionForm.svelte to wrap all text with $t()
+- [X] T048 [P] [US1] Update TransactionFilters component at frontend/src/lib/components/transactions/TransactionFilters.svelte to wrap all text with $t()
+- [X] T049 [P] [US1] Update TransactionList component at frontend/src/lib/components/transactions/TransactionList.svelte to wrap all text with $t()
+- [X] T050 [P] [US1] Update WalletForm component at frontend/src/lib/components/wallets/WalletForm.svelte to wrap all text with $t()
+- [X] T051 [P] [US1] Update CategoryForm component at frontend/src/lib/components/categories/CategoryForm.svelte to wrap all text with $t()
+- [X] T107 [P] [US1] Update WalletList component at frontend/src/lib/components/wallets/WalletList.svelte to wrap all text with $t()
+- [X] T108 [P] [US1] Update CategoryList component at frontend/src/lib/components/categories/CategoryList.svelte to wrap all text with $t()
+- [X] T109 [P] [US1] Update CategorySummary component at frontend/src/lib/components/categories/CategorySummary.svelte to wrap all text with $t()
+- [X] T110 [P] [US1] Update MonthSummaryCard component at frontend/src/lib/components/dashboard/MonthSummaryCard.svelte to wrap all text with $t()
+- [X] T111 [P] [US1] Update CategoryBreakdown component at frontend/src/lib/components/dashboard/CategoryBreakdown.svelte to wrap all text with $t()
+- [X] T112 [P] [US1] Update SavingsRateDisplay component at frontend/src/lib/components/dashboard/SavingsRateDisplay.svelte to wrap all text with $t()
 
 **Checkpoint**: User Story 1 complete and independently testable. Users can change language, all UI updates, settings persist. MVP deliverable!
 
@@ -148,47 +156,47 @@
 
 #### Unit Tests
 
-- [ ] T052 [P] [US2] Create unit test file for currency formatter at frontend/tests/unit/currency.test.ts
-- [ ] T053 [P] [US2] Write test: formatCurrency formats Bs. with Spanish locale (1.500,00)
-- [ ] T054 [P] [US2] Write test: formatCurrency formats $ with US locale (1,500.00)
-- [ ] T055 [P] [US2] Write test: formatCurrency uses default currency from settings store
-- [ ] T056 [P] [US2] Write test: formatCurrency accepts explicit currency override
-- [ ] T057 [P] [US2] Write test: formatCurrency handles negative amounts correctly
-- [ ] T058 [P] [US2] Write test: formatCurrencyCompact formats large amounts with K/M notation
+- [X] T052 [P] [US2] Create unit test file for currency formatter at frontend/tests/unit/currency.test.ts
+- [X] T053 [P] [US2] Write test: formatCurrency formats Bs. with Spanish locale (1.500,00)
+- [X] T054 [P] [US2] Write test: formatCurrency formats $ with US locale (1,500.00)
+- [X] T055 [P] [US2] Write test: formatCurrency uses default currency from settings store
+- [X] T056 [P] [US2] Write test: formatCurrency accepts explicit currency override
+- [X] T057 [P] [US2] Write test: formatCurrency handles negative amounts correctly
+- [X] T058 [P] [US2] Write test: formatCurrencyCompact formats large amounts with K/M notation
 
 #### Component Tests
 
-- [ ] T059 [P] [US2] Write test: Currency selector updates all displayed amounts when changed
-- [ ] T060 [P] [US2] Write test: Currency change is display-only (no numerical conversion)
+- [X] T059 [P] [US2] Write test: Currency selector updates all displayed amounts when changed
+- [X] T060 [P] [US2] Write test: Currency change is display-only (no numerical conversion)
 
 #### E2E Tests
 
-- [ ] T061 [P] [US2] Write test: User changes currency from Bs. to $, all amounts update with new symbol
-- [ ] T062 [P] [US2] Write test: User changes currency, closes browser, reopens, currency persists
-- [ ] T063 [P] [US2] Write test: Currency switch completes in under 200ms (SC-002)
-- [ ] T064 [P] [US2] Write test: Numerical values unchanged after currency switch (display-only verification)
+- [X] T061 [P] [US2] Write test: User changes currency from Bs. to $, all amounts update with new symbol
+- [X] T062 [P] [US2] Write test: User changes currency, closes browser, reopens, currency persists
+- [X] T063 [P] [US2] Write test: Currency switch completes in under 200ms (SC-002)
+- [X] T064 [P] [US2] Write test: Numerical values unchanged after currency switch (display-only verification)
 
 ### Implementation for User Story 2
 
 #### Currency Formatter Update
 
-- [ ] T065 [US2] Add CURRENCY_MAP constant to frontend/src/lib/utils/currency.ts with Bs. (BOB, es-BO) and $ (USD, en-US) mappings
-- [ ] T066 [US2] Update formatCurrency function signature to accept optional currency parameter with default from settings store
-- [ ] T067 [US2] Update formatCurrencyCompact function signature to accept optional currency parameter with default from settings store
-- [ ] T068 [US2] Ensure formatCurrency uses Intl.NumberFormat with correct locale based on currency
+- [X] T065 [US2] Add CURRENCY_MAP constant to frontend/src/lib/utils/currency.ts with Bs. (BOB, es-BO) and $ (USD, en-US) mappings
+- [X] T066 [US2] Update formatCurrency function signature to accept optional currency parameter with default from settings store
+- [X] T067 [US2] Update formatCurrencyCompact function signature to accept optional currency parameter with default from settings store
+- [X] T068 [US2] Ensure formatCurrency uses Intl.NumberFormat with correct locale based on currency
 
 #### Settings UI Component
 
-- [ ] T069 [US2] Create CurrencySelector component at frontend/src/lib/components/settings/CurrencySelector.svelte with Bs./$ dropdown
-- [ ] T070 [US2] Integrate CurrencySelector into SettingsPage component
+- [X] T069 [US2] Create CurrencySelector component at frontend/src/lib/components/settings/CurrencySelector.svelte with Bs./$ dropdown
+- [X] T070 [US2] Integrate CurrencySelector into SettingsPage component
 
 #### Component Currency Display Updates
 
-- [ ] T071 [P] [US2] Verify TransactionForm displays amounts with formatCurrency (may already use it)
-- [ ] T072 [P] [US2] Verify TransactionList displays amounts with formatCurrency (may already use it)
-- [ ] T073 [P] [US2] Verify Dashboard displays total balance with formatCurrency (may already use it)
-- [ ] T074 [P] [US2] Verify WalletCard displays balance with formatCurrency (may already use it)
-- [ ] T075 [P] [US2] Add currency symbol display to any components missing formatCurrency calls
+- [X] T071 [P] [US2] Ensure TransactionForm at frontend/src/lib/components/transactions/TransactionForm.svelte displays amounts via formatCurrency — update if not already doing so
+- [X] T072 [P] [US2] Ensure TransactionList at frontend/src/lib/components/transactions/TransactionList.svelte displays amounts via formatCurrency — update if not already doing so
+- [X] T073 [P] [US2] Ensure Dashboard components at frontend/src/lib/components/dashboard/ display totals and balances via formatCurrency — update any that are not
+- [X] T074 [P] [US2] Ensure WalletList at frontend/src/lib/components/wallets/WalletList.svelte displays balances via formatCurrency — update if not already doing so
+- [X] T075 [P] [US2] Ensure CategorySummary at frontend/src/lib/components/categories/CategorySummary.svelte displays amounts via formatCurrency — update if not already doing so
 
 **Checkpoint**: User Story 2 complete and independently testable. Users can change currency symbol, all amounts update, settings persist. Both US1 and US2 work independently!
 
@@ -200,11 +208,11 @@
 
 ### Code Quality & Validation
 
-- [ ] T076 [P] Run linter on all new files and fix any issues
-- [ ] T077 [P] Run TypeScript compiler in strict mode and fix any type errors
-- [ ] T078 [P] Verify all methods stay under 30 lines and 15 cyclomatic complexity (constitution requirement)
-- [ ] T079 Verify no XSS vulnerabilities in translation rendering (plain text only)
-- [ ] T080 Verify Zod validation prevents invalid language/currency codes
+- [X] T076 [P] Run linter on all new files and fix any issues
+- [X] T077 [P] Run TypeScript compiler in strict mode and fix any type errors
+- [X] T078 [P] Verify all methods stay under 30 lines and 15 cyclomatic complexity (constitution requirement)
+- [X] T079 Verify no XSS vulnerabilities in translation rendering (plain text only)
+- [X] T080 Verify Zod validation prevents invalid language/currency codes
 
 ### Performance Validation
 
@@ -215,21 +223,22 @@
 
 ### Test Coverage
 
-- [ ] T085 Run test coverage report and verify 85%+ coverage achieved (target exceeds 80% minimum)
-- [ ] T086 [P] Add any missing edge case tests identified in coverage report
-- [ ] T087 Run all unit tests and ensure 100% pass rate
-- [ ] T088 Run all integration tests and ensure 100% pass rate
+- [X] T085 Run test coverage report and verify 85%+ coverage achieved (target exceeds 80% minimum)
+- [X] T086 [P] Add any missing edge case tests identified in coverage report
+- [X] T087 Run all unit tests and ensure 100% pass rate
+- [X] T088 Run all integration tests and ensure 100% pass rate
 - [ ] T089 Run all E2E tests and ensure 100% pass rate
 
 ### Translation Coverage
 
-- [ ] T090 Verify 100% of UI text is translated in both Spanish and English (SC-003)
+- [X] T090 Verify 100% of UI text is translated in both Spanish and English (SC-003)
 - [ ] T091 Manually test app in Spanish and verify all text displays correctly
 - [ ] T092 Manually test app in English and verify all text displays correctly
-- [ ] T093 Verify no translation keys are missing (check console for warnings)
+- [X] T093 Verify no translation keys are missing (check console for warnings)
 
 ### Documentation & Validation
 
+- [ ] T114 Create ADR at specs/002-settings-i18n-currency/adr-001-i18n-approach.md documenting: decision to use custom dictionary-based i18n over external libraries (rationale: Svelte 5 runes compatibility, zero dependencies, <0.01ms lookup), and synchronous LocalStorage load strategy to prevent FOUT (constitution Development Workflow requirement)
 - [ ] T094 [P] Verify quickstart.md examples work correctly
 - [ ] T095 [P] Update README if needed with i18n usage instructions
 - [ ] T096 Run through all acceptance scenarios from spec.md and verify each passes
@@ -241,6 +250,7 @@
 - [ ] T099 [P] Verify settings page is accessible from any page in max 2 clicks (SC-005)
 - [ ] T100 [P] Verify users can complete settings configuration in under 30 seconds (SC-006)
 - [ ] T101 Test on multiple browsers (Chrome, Firefox, Safari, Edge)
+- [ ] T105 Audit SettingsPage, LanguageSelector, and CurrencySelector for WCAG AA compliance: keyboard navigation (Tab/Enter/Space), ARIA labels on all controls, focus indicators visible, color contrast ratio ≥ 4.5:1 (constitution Principle III MUST)
 
 ### Final Validation
 

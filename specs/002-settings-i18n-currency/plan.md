@@ -129,6 +129,9 @@ frontend/
 │   │   ├── stores/
 │   │   │   └── settings.ts        # Settings store (language, currency, persistence)
 │   │   │
+│   │   ├── services/
+│   │   │   └── storage.ts         # EXISTING: LocalStorage abstraction — UPDATE: add getSettings/saveSettings
+│   │   │
 │   │   ├── components/
 │   │   │   ├── settings/
 │   │   │   │   ├── SettingsPage.svelte      # Main settings page component

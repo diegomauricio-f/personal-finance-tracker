@@ -29,7 +29,6 @@ import { storageService } from '$lib/services/storage';
 // Create a simple in-memory storage for tests
 let testStorage: Record<string, string> = {};
 
-/* eslint-disable max-lines-per-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 describe.skip('Settings Page Component', () => {
   beforeEach(() => {

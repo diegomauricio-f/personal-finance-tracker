@@ -7,7 +7,7 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { get } from 'svelte/store';
-import { t, getCurrentLanguage, hasTranslation, getAllKeys } from '$lib/i18n';
+import { t, getCurrentLanguage, hasTranslation, getAllKeys, getCategoryName } from '$lib/i18n';
 import { settingsStore } from '$lib/stores/settings';
 import { storageService } from '$lib/services/storage';
 
@@ -189,7 +189,6 @@ describe('i18n Translation System', () => {
     it('should update translations when language changes', () => {
       // Arrange: Subscribe to translation store
       const values: string[] = [];
-      const translation = get(t);
       const unsubscribe = t.subscribe(fn => {
         values.push(fn('common.welcome'));
       });
@@ -251,6 +250,31 @@ describe('i18n Translation System', () => {
       const result = translation('transactions.filters.dateRange.start');
       expect(result).toBeDefined();
       expect(typeof result).toBe('string');
+    });
+  });
+
+  describe('getCategoryName', () => {
+    it('should return original name for custom categories', () => {
+      const result = getCategoryName({ id: 'custom-123', name: 'Mi Categoría', type: 'custom' });
+      expect(result).toBe('Mi Categoría');
+    });
+
+    it('should return translated name for predefined categories in Spanish', () => {
+      settingsStore.setLanguage('es');
+      const result = getCategoryName({ id: 'cat-food', name: 'Food', type: 'predefined' });
+      expect(result).toBe('Comida');
+    });
+
+    it('should return translated name for predefined categories in English', () => {
+      settingsStore.setLanguage('en');
+      const result = getCategoryName({ id: 'cat-food', name: 'Food', type: 'predefined' });
+      expect(result).toBe('Food');
+    });
+
+    it('should return original name when translation key does not exist', () => {
+      settingsStore.setLanguage('es');
+      const result = getCategoryName({ id: 'cat-unknown', name: 'Unknown Cat', type: 'predefined' });
+      expect(result).toBe('Unknown Cat');
     });
   });
 });

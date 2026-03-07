@@ -10,7 +10,6 @@ import { formatCurrency, formatCurrencyCompact, CURRENCY_MAP } from '$lib/utils/
 import { settingsStore } from '$lib/stores/settings';
 import type { Currency } from '$lib/i18n/types';
 
-/* eslint-disable max-lines-per-function */
 describe('Currency Formatting Utilities', () => {
 	beforeEach(() => {
 		// Reset settings store to defaults before each test
