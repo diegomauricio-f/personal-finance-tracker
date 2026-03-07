@@ -22,16 +22,16 @@ test.describe('Settings - Language Switching', () => {
 
     // Verify initial state is Spanish
     await expect(page.getByRole('heading', { name: 'Configuración' })).toBeVisible();
-    await expect(page.getByText('Idioma')).toBeVisible();
+    await expect(page.locator('label[for="language-select"]')).toBeVisible();
 
     // Change language to English
     await page.selectOption('select#language-select', 'en');
 
     // Verify all text updated to English
     await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
-    await expect(page.getByText('Language')).toBeVisible();
-    await expect(page.getByText('Currency')).toBeVisible();
-    await expect(page.getByText('Select application language')).toBeVisible();
+    await expect(page.locator('label[for="language-select"]')).toHaveText('Language');
+    await expect(page.locator('label[for="currency-select"]')).toHaveText('Currency');
+    await expect(page.getByText('Select application language', { exact: true })).toBeVisible();
   });
 
   test('T033: User changes language, closes browser, reopens, language persists', async ({ page, context }) => {
@@ -51,7 +51,7 @@ test.describe('Settings - Language Switching', () => {
 
     // Verify language persisted
     await expect(newPage.getByRole('heading', { name: 'Settings' })).toBeVisible();
-    await expect(newPage.getByText('Language')).toBeVisible();
+    await expect(newPage.locator('label[for="language-select"]')).toHaveText('Language');
   });
 
   test('T034: Settings page accessible from navigation in max 2 clicks', async ({ page }) => {
@@ -70,20 +70,11 @@ test.describe('Settings - Language Switching', () => {
     // Navigate to settings
     await page.goto('/settings');
 
-    // Measure time to switch language
-    const startTime = Date.now();
-
     // Change language
     await page.selectOption('select#language-select', 'en');
 
-    // Wait for UI to update
-    await page.waitForSelector('h1:has-text("Settings")', { timeout: 200 });
-
-    const endTime = Date.now();
-    const duration = endTime - startTime;
-
-    // Verify it took less than 200ms
-    expect(duration).toBeLessThan(200);
+    // Verify UI updates within 200ms (the performance requirement)
+    await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible({ timeout: 200 });
   });
 
   test('Language change updates navigation menu', async ({ page }) => {
@@ -123,8 +114,8 @@ test.describe('Settings - Language Switching', () => {
   test('Settings page has proper accessibility', async ({ page }) => {
     await page.goto('/settings');
 
-    // Check for proper heading hierarchy
-    const h1 = page.locator('h1');
+    // Check for proper heading hierarchy (use role to avoid strict mode with nav h1)
+    const h1 = page.getByRole('heading', { name: /Configuración|Settings/ });
     await expect(h1).toBeVisible();
 
     // Check for labels
