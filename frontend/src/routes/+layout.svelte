@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { inject } from '@vercel/analytics';
 	import favicon from '$lib/assets/favicon.svg';
 	import Navigation from '$lib/components/layout/Navigation.svelte';
 	import '../app.css';
+
+	inject();
 
 	let { children } = $props();
 </script>
