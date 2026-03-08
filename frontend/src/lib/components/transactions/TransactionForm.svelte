@@ -330,6 +330,10 @@
 	.transaction-form {
 		width: 100%;
 		max-width: 500px;
+		background: white;
+		border: 1px solid #e5e7eb;
+		border-radius: 0.5rem;
+		padding: 1.5rem;
 	}
 
 	.form-group {

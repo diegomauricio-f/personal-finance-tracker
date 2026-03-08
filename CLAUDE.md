@@ -1,10 +1,11 @@
 ﻿# diegomauriciof Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2025-01-08
+Auto-generated from all feature plans. Last updated: 2026-03-08
 
 ## Active Technologies
 - JavaScript/TypeScript with SvelteKit 2.x (latest stable) (001-personal-finance-tracker)
 - Custom dictionary-based i18n with Svelte stores (002-settings-i18n-currency)
+- Chart.js 4.x via raw canvas + Svelte 5 onMount/$effect (003-chartjs-trends-chart)
 
 ## i18n (Internationalization)
 **Approach**: Custom dictionary-based translation system (no external library)
@@ -56,7 +57,15 @@ npm test; npm run lint
 ## Code Style
 JavaScript/TypeScript with SvelteKit 2.x (latest stable): Follow standard conventions
 
+## Chart.js Integration
+**Library**: Chart.js 4.x (MIT license) — replaces layerchart
+**Pattern**: Raw canvas binding with `onMount` for init, `$effect` for reactive updates
+**Responsive**: `responsive: true`, `maintainAspectRatio: false` — native ResizeObserver
+**Tooltips**: Locale-aware via `buildTooltipCallbacks(currency, language)` pure function
+**Testing**: Canvas not unit-testable in jsdom; data transformers tested in unit tests; rendering tested in E2E
+
 ## Recent Changes
+- 003-chartjs-trends-chart: Replaced layerchart with Chart.js for mobile-responsive trend chart
 - 002-settings-i18n-currency: Added custom i18n system and user settings persistence
 - 001-personal-finance-tracker: Added JavaScript/TypeScript with SvelteKit 2.x (latest stable)
 

@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.output
+.vercel
+.netlify
+.wrangler
+
+# Test artifacts
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# SvelteKit
+.svelte-kit/
+build/
