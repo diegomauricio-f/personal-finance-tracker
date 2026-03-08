@@ -67,7 +67,7 @@ Un usuario autenticado ve sus datos financieros actualizados en cualquier dispos
 - ¿Qué ocurre si la migración falla a mitad de proceso? → Se mantiene la integridad: o se migra todo o no se migra nada (transacción atómica).
 - ¿Qué pasa si el usuario cierra la app durante la migración? → Al volver a abrir, se detecta la migración incompleta y se ofrece reintentar.
 - ¿Qué sucede con categorías predefinidas durante la migración? → No se duplican; solo se migran las categorías personalizadas.
-- ¿El usuario puede usar la app sin estar autenticado? → [NEEDS CLARIFICATION: ¿se mantiene el modo local sin cuenta como opción, o se requiere registro para usar la app?]
+- ¿El usuario puede usar la app sin estar autenticado? → No. El registro es obligatorio. Todos los usuarios deben tener una cuenta para acceder a la aplicación.
 
 ---
 
@@ -126,6 +126,6 @@ Un usuario autenticado ve sus datos financieros actualizados en cualquier dispos
 - El proveedor de base de datos relacional y el backend serán seleccionados en la fase de planificación técnica, no en esta especificación.
 - La autenticación usará email + contraseña como método principal (no se requiere OAuth social por ahora).
 - Las categorías predefinidas del sistema (no personalizadas por el usuario) no se migran porque ya existen en el servidor.
-- El modo "sin cuenta" (solo local) se mantiene disponible como opción para usuarios que prefieran no registrarse. [Pendiente de confirmación — ver edge case].
+- El registro es obligatorio. No existe modo local sin cuenta; los usuarios deben autenticarse para usar la aplicación.
 - La sincronización entre dispositivos puede tener una latencia de hasta 5 segundos (no se requiere colaboración en tiempo real).
 - La aplicación actualmente almacena datos en localStorage del navegador; la migración leerá directamente desde ahí.

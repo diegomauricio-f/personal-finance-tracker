@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain — 1 marker pendiente (ver abajo)
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -31,4 +31,4 @@
 
 ## Notes
 
-- **1 clarificación pendiente**: ¿Se mantiene el modo local sin cuenta como opción, o se requiere registro obligatorio? (Edge cases, US3)
+- Todas las clarificaciones resueltas. Registro obligatorio confirmado (Opción A).
