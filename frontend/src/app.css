@@ -14,3 +14,22 @@ body {
   background-color: #e0f2fe;
   color: #111827;
 }
+
+/* Ensure readable text regardless of dark mode CSS variable overrides */
+h1, h2, h3, h4, h5, h6 {
+  color: #111827;
+}
+
+label {
+  color: #374151;
+}
+
+input, select, textarea {
+  color: #111827;
+  background-color: #ffffff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
