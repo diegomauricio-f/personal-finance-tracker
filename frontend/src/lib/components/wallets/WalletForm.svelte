@@ -93,7 +93,7 @@
 </script>
 
 <form onsubmit={handleSubmit} class="wallet-form">
-	<h3 class="text-xl font-semibold text-red-600 mb-4">{$t('wallets.addNew')}</h3>
+	<h3 class="text-xl font-semibold text-gray-900 mb-4">{$t('wallets.addNew')}</h3>
 
 	<!-- Name Field -->
 	<div class="form-group mb-4">
