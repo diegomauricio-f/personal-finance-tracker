@@ -89,8 +89,8 @@ No additional foundational work needed.
 ## Phase 6: Polish & Release
 
 - [ ] T017 Verify desktop appearance unchanged (no visual regressions on Chrome/Firefox desktop)
-- [ ] T018 Commit all changes on `004-mobile-contrast-fix` with message `fix(004): add explicit text colors to all form elements for iOS dark mode contrast`
-- [ ] T019 Merge `004-mobile-contrast-fix` into `main` and push to GitHub (`git push origin main`)
+- [x] T018 Commit all changes on `004-mobile-contrast-fix` with message `fix(004): add explicit text colors to all form elements for iOS dark mode contrast`
+- [x] T019 Merge `004-mobile-contrast-fix` into `main` and push to GitHub (`git push origin main`)
 - [ ] T020 Verify Vercel auto-deploys and test on iPhone with dark mode ON
 
 **Checkpoint**: Fix live in production, WCAG AA contrast verified on iOS.
