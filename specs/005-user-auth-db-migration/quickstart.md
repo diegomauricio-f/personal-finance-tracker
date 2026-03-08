@@ -58,15 +58,19 @@
 1. Open app in a fresh browser session (not logged in)
 2. Manually set localStorage data to simulate existing user:
    ```javascript
-   localStorage.setItem('wallets', JSON.stringify([
-     { id: crypto.randomUUID(), name: 'Efectivo', createdAt: new Date().toISOString() }
+   const walletId = crypto.randomUUID()
+   localStorage.setItem('finance-tracker:wallets', JSON.stringify([
+     { id: walletId, name: 'Efectivo', createdAt: new Date().toISOString(), deletedAt: null }
    ]))
-   localStorage.setItem('transactions', JSON.stringify([
+   localStorage.setItem('finance-tracker:transactions', JSON.stringify([
      {
-       id: crypto.randomUUID(), walletId: '...', categoryId: '...',
-       amount: 100, type: 'income', date: new Date().toISOString()
+       id: crypto.randomUUID(), walletId, categoryId: 'cat-food',
+       amount: 100, type: 'expense', date: new Date().toISOString(),
+       createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()
      }
    ]))
+   // Note: finance-tracker:categories only stores CUSTOM categories, not predefined ones
+   localStorage.setItem('finance-tracker:categories', JSON.stringify([]))
    ```
 3. Register a new account OR login with existing account (no migration flag)
 4. After auth → migration prompt appears with summary
@@ -77,8 +81,8 @@
 **Verify**:
 - Supabase Dashboard → Table Editor → `wallets` and `transactions` contain migrated rows
 - `migration_log` table has 1 entry for this user
-- `auth.users.raw_app_meta_data` contains `{ "local_migration_completed": true }`
-- Reloading the app does NOT show migration prompt again
+- `localStorage.getItem('finance-tracker:migrated')` contains `{ userId, migratedAt, counts }`
+- Reloading the app does NOT show migration prompt again (flag userId matches session user)
 
 ---
 

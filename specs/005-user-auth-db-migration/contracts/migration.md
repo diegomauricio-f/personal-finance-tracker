@@ -12,19 +12,26 @@
 ### Detection Logic
 ```
 1. If !session → skip (user not logged in)
-2. If session.user.app_metadata.local_migration_completed === true:
-   a. If localStorage has financial data → show "merge or discard" prompt (second device)
-   b. Else → skip (nothing to do)
-3. If local data exists AND flag absent → show migration prompt
+2. Check localStorage key `finance-tracker:migrated` for { userId } matching session.user.id
+   a. If migrated for this user AND localStorage has financial data → show "merge or discard" prompt (second device)
+   b. If migrated for this user AND no local data → skip (nothing to do)
+3. If local data exists AND flag absent (or userId mismatch) → show migration prompt
 4. If no local data AND flag absent → skip (new user, nothing to migrate)
 ```
 
 ### localStorage Keys to Check
 | Key | Content |
 |-----|---------|
-| `wallets` | JSON array of wallet objects |
-| `transactions` | JSON array of transaction objects |
-| `categories` | JSON array of custom category objects |
+| `finance-tracker:wallets` | JSON array of Wallet objects |
+| `finance-tracker:transactions` | JSON array of Transaction objects |
+| `finance-tracker:categories` | JSON array of custom Category objects (predefined categories NOT stored here) |
+
+### Migration Flag Key
+| Key | Format |
+|-----|--------|
+| `finance-tracker:migrated` | `{ migratedAt: ISO string, userId: string, counts: { wallets, transactions, categories } }` |
+
+The flag stores `userId` to handle shared-device scenarios: if a different user logs in, `userId` won't match and detection runs fresh.
 
 ---
 
@@ -51,33 +58,40 @@ Shown as a blocking modal/page before dashboard access.
 **Auth**: Anon key (RLS applies); procedure uses `auth.uid()` to scope inserts
 
 ### Request Payload
+
+Fields are mapped from camelCase (localStorage) to snake_case (RPC) by the client before sending.
+
 ```typescript
 interface MigrateLocalDataPayload {
+  // Only custom categories (type === 'custom' in localStorage Category model)
+  // Predefined categories (cat-food, cat-transport, etc.) are already seeded in the DB — do NOT include them
   p_categories: Array<{
-    id: string          // UUID (preserved from localStorage)
+    id: string          // UUID (preserved from localStorage; predefined IDs like 'cat-food' must be excluded)
     name: string
-    type: 'income' | 'expense'
-    icon?: string
-    deleted_at?: string | null
+    deleted_at?: string | null   // from Category.deletedAt
   }>
   p_wallets: Array<{
-    id: string          // UUID (preserved)
+    id: string          // UUID (preserved from Wallet.id)
     name: string
-    created_at?: string
-    deleted_at?: string | null
+    created_at?: string  // from Wallet.createdAt
+    deleted_at?: string | null   // from Wallet.deletedAt
   }>
   p_transactions: Array<{
-    id: string          // UUID (preserved)
-    wallet_id: string
-    category_id?: string | null
-    amount: number
-    type: 'income' | 'expense'
-    note?: string
-    date: string        // ISO 8601
+    id: string          // UUID (preserved from Transaction.id)
+    wallet_id: string   // from Transaction.walletId
+    category_id?: string | null  // from Transaction.categoryId (may be predefined non-UUID like 'cat-food')
+    amount: number      // from Transaction.amount (always positive in localStorage)
+    type: 'income' | 'expense'   // from Transaction.type
+    note?: string       // from Transaction.note
+    date: string        // ISO 8601 from Transaction.date
+    created_at?: string  // from Transaction.createdAt
+    updated_at?: string  // from Transaction.updatedAt
     deleted_at?: string | null
   }>
 }
 ```
+
+**Important**: `category_id` in transactions may reference a predefined category ID (`cat-food`, etc.) which is a non-UUID string. The stored procedure must handle this by looking up predefined categories seeded in the DB, or setting `category_id = NULL` for unresolvable references.
 
 ### Response
 ```typescript
@@ -126,7 +140,8 @@ Can reuse the same stored procedure with an `p_is_merge BOOLEAN` parameter.
 ## Post-Migration Client Cleanup
 
 After successful RPC response:
-1. Set localStorage sentinel: `localStorage.setItem('migration_status', 'completed')`
-2. Remove migrated data keys OR keep them (read-only, no further writes)
-3. Call `supabase.auth.refreshSession()` to get updated `app_metadata` in session
-4. Redirect to `/` (dashboard)
+1. Write migration flag: `localStorage.setItem('finance-tracker:migrated', JSON.stringify({ migratedAt, userId, counts }))`
+2. Keep original data keys intact (do NOT remove them) — required so FR-015 "start fresh" path works for the current session and potential retries
+3. Redirect to `/` (dashboard)
+
+**Do NOT** call `supabase.auth.refreshSession()` — migration flag is tracked in localStorage (client-side), not in `app_metadata`. The `finance-tracker:migrated` key with matching `userId` is the sole gate for re-prompting.
