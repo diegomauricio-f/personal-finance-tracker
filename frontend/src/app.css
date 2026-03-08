@@ -33,3 +33,39 @@ input::placeholder, textarea::placeholder {
   color: #6b7280;
   opacity: 1;
 }
+
+/* Direct override of Skeleton's @media (prefers-color-scheme: dark) rules.
+   @custom-variant only affects our own utilities; Skeleton's compiled media
+   queries still fire. These !important rules win regardless of specificity. */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color: #111827 !important;
+    background-color: #e0f2fe !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important;
+  }
+
+  label {
+    color: #374151 !important;
+  }
+
+  input, select, textarea {
+    color: #111827 !important;
+    background-color: #ffffff !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+  }
+
+  .bg-white {
+    background-color: #ffffff !important;
+  }
+
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+}
