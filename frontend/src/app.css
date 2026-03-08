@@ -2,8 +2,12 @@
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/themes/modern';
 
+/* Force light mode: redefine dark variant to require .dark class (never added),
+   preventing Skeleton and Tailwind dark: utilities from triggering on OS dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
-  color-scheme: light;
+  color-scheme: light only;
 }
 
 body {
