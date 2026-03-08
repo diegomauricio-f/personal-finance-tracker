@@ -2,6 +2,11 @@
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/themes/modern';
 
+html {
+  color-scheme: light;
+}
+
 body {
   background-color: #e0f2fe;
+  color: #111827;
 }
