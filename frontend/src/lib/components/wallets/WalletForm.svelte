@@ -93,11 +93,11 @@
 </script>
 
 <form onsubmit={handleSubmit} class="wallet-form">
-	<h3 class="text-xl font-semibold mb-4">{$t('wallets.addNew')}</h3>
+	<h3 class="text-xl font-semibold text-gray-900 mb-4">{$t('wallets.addNew')}</h3>
 
 	<!-- Name Field -->
 	<div class="form-group mb-4">
-		<label for="wallet-name" class="block text-sm font-medium mb-2">
+		<label for="wallet-name" class="block text-sm font-medium text-gray-700 mb-2">
 			{$t('wallets.form.name')} <span class="text-red-500">*</span>
 		</label>
 		<input
@@ -107,7 +107,7 @@
 			oninput={handleNameInput}
 			placeholder={$t('wallets.form.namePlaceholder')}
 			maxlength="100"
-			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 			class:border-red-500={errors.name}
 			required
 		/>

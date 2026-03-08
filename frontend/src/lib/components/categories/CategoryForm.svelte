@@ -126,13 +126,13 @@
 </script>
 
 <form onsubmit={handleSubmit} class="category-form">
-	<h3 class="text-xl font-semibold mb-4">
+	<h3 class="text-xl font-semibold text-gray-900 mb-4">
 		{mode === 'edit' ? $t('categories.editCategory') : $t('categories.addNew')}
 	</h3>
 
 	<!-- Name Field -->
 	<div class="form-group mb-4">
-		<label for="category-name" class="block text-sm font-medium mb-2">
+		<label for="category-name" class="block text-sm font-medium text-gray-700 mb-2">
 			{$t('categories.form.name')} <span class="text-red-500">*</span>
 		</label>
 		<input
@@ -142,7 +142,7 @@
 			oninput={handleNameInput}
 			placeholder={$t('categories.form.namePlaceholder')}
 			maxlength="50"
-			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+			class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 			class:border-red-500={errors.name}
 			required
 		/>

@@ -92,7 +92,7 @@
 							<input
 								type="text"
 								bind:value={editName}
-								class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+								class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 								placeholder={$t('wallets.form.namePlaceholder')}
 								onkeydown={(e) => {
 									if (e.key === 'Enter') handleUpdate();

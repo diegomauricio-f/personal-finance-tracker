@@ -41,9 +41,9 @@ No additional foundational work needed.
 
 ### Implementation
 
-- [ ] T003 [US1] Add `text-gray-900` to `<h3>` at line 129 in `frontend/src/lib/components/categories/CategoryForm.svelte`
-- [ ] T004 [US1] Add `text-gray-700` to `<label>` at line 135 in `frontend/src/lib/components/categories/CategoryForm.svelte`
-- [ ] T005 [US1] Add `text-gray-900 bg-white` to `<input>` at line 138 in `frontend/src/lib/components/categories/CategoryForm.svelte`
+- [x] T003 [US1] Add `text-gray-900` to `<h3>` at line 129 in `frontend/src/lib/components/categories/CategoryForm.svelte`
+- [x] T004 [US1] Add `text-gray-700` to `<label>` at line 135 in `frontend/src/lib/components/categories/CategoryForm.svelte`
+- [x] T005 [US1] Add `text-gray-900 bg-white` to `<input>` at line 138 in `frontend/src/lib/components/categories/CategoryForm.svelte`
 
 **Checkpoint**: `/categories` form fully readable on iOS dark mode.
 
@@ -57,10 +57,10 @@ No additional foundational work needed.
 
 ### Implementation
 
-- [ ] T006 [US2] Add `text-gray-900` to `<h3>` at line 96 in `frontend/src/lib/components/wallets/WalletForm.svelte`
-- [ ] T007 [US2] Add `text-gray-700` to `<label>` at line 100 in `frontend/src/lib/components/wallets/WalletForm.svelte`
-- [ ] T008 [US2] Add `text-gray-900 bg-white` to `<input>` at line 103 in `frontend/src/lib/components/wallets/WalletForm.svelte`
-- [ ] T009 [US2] Add `text-gray-900 bg-white` to inline edit `<input>` at line 95 in `frontend/src/lib/components/wallets/WalletList.svelte`
+- [x] T006 [US2] Add `text-gray-900` to `<h3>` at line 96 in `frontend/src/lib/components/wallets/WalletForm.svelte`
+- [x] T007 [US2] Add `text-gray-700` to `<label>` at line 100 in `frontend/src/lib/components/wallets/WalletForm.svelte`
+- [x] T008 [US2] Add `text-gray-900 bg-white` to `<input>` at line 103 in `frontend/src/lib/components/wallets/WalletForm.svelte`
+- [x] T009 [US2] Add `text-gray-900 bg-white` to inline edit `<input>` at line 95 in `frontend/src/lib/components/wallets/WalletList.svelte`
 
 **Checkpoint**: `/wallets` page fully readable on iOS dark mode.
 
@@ -74,13 +74,13 @@ No additional foundational work needed.
 
 ### Implementation
 
-- [ ] T010 [US3] Add `text-gray-900` to `<h2>` at line 64 in `frontend/src/lib/components/transactions/TransactionList.svelte`
-- [ ] T011 [P] [US3] Add `text-gray-900 bg-white` to wallet `<select>` at line 118 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
-- [ ] T012 [P] [US3] Add `text-gray-900 bg-white` to category `<select>` at line 135 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
-- [ ] T013 [P] [US3] Add `text-gray-900 bg-white` to type `<select>` at line 152 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
-- [ ] T014 [P] [US3] Add `text-gray-900 bg-white` to start date `<input>` at line 168 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
-- [ ] T015 [P] [US3] Add `text-gray-900 bg-white` to end date `<input>` at line 181 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
-- [ ] T016 [P] [US3] Add `text-gray-900 bg-white` to search `<input>` at line 194 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T010 [US3] Add `text-gray-900` to `<h2>` at line 64 in `frontend/src/lib/components/transactions/TransactionList.svelte`
+- [x] T011 [P] [US3] Add `text-gray-900 bg-white` to wallet `<select>` at line 118 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T012 [P] [US3] Add `text-gray-900 bg-white` to category `<select>` at line 135 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T013 [P] [US3] Add `text-gray-900 bg-white` to type `<select>` at line 152 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T014 [P] [US3] Add `text-gray-900 bg-white` to start date `<input>` at line 168 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T015 [P] [US3] Add `text-gray-900 bg-white` to end date `<input>` at line 181 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
+- [x] T016 [P] [US3] Add `text-gray-900 bg-white` to search `<input>` at line 194 in `frontend/src/lib/components/transactions/TransactionFilters.svelte`
 
 **Checkpoint**: `/transactions` page and filters fully readable on iOS dark mode.
 

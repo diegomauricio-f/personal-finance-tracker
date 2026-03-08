@@ -118,7 +118,7 @@
 					<select
 						id="wallet-filter"
 						bind:value={walletId}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					>
 						<option value="">{$t('transactions.filters.allWallets')}</option>
 						{#each $wallets as wallet (wallet.id)}
@@ -135,7 +135,7 @@
 					<select
 						id="category-filter"
 						bind:value={categoryId}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					>
 						<option value="">{$t('transactions.filters.allCategories')}</option>
 						{#each $categories as category (category.id)}
@@ -152,7 +152,7 @@
 					<select
 						id="type-filter"
 						bind:value={type}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					>
 						<option value="">{$t('transactions.filters.allTypes')}</option>
 						<option value="income">{$t('transactions.types.income')}</option>
@@ -169,7 +169,7 @@
 						id="start-date-filter"
 						type="date"
 						bind:value={startDate}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					/>
 				</div>
 
@@ -182,7 +182,7 @@
 						id="end-date-filter"
 						type="date"
 						bind:value={endDate}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					/>
 				</div>
 
@@ -196,7 +196,7 @@
 						type="text"
 						bind:value={searchTerm}
 						placeholder={$t('transactions.filters.searchPlaceholder')}
-						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+						class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
 					/>
 				</div>
 			</div>
